@@ -19,7 +19,8 @@ gulp.task('ejs', function() {
         filename = path.basename(file.path),
         ext = path.extname(file.path),
         jsonPath = dir + '/' + filename.replace(ext, '') + '/index.json',
-        json = JSON.parse(fs.readFileSync(jsonPath));
+        // json = JSON.parse(fs.readFileSync(jsonPath));
+        json = require(jsonPath);
 
       return stream
         .pipe(gulp.src(dir + '/' + filename))
